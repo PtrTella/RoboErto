@@ -9,7 +9,6 @@ Github repository:
 
 Files and folders:
 
-- [_FOLDER_] __pycache__
 - [_FOLDER_] NAOMoves: containing all moves 
 - [_FOLDER_] Music: containing song files .wav 
 - main.py
@@ -17,6 +16,7 @@ Files and folders:
 - coreography.py
 - library.py
 - music_detection.py
+- music_player.py
 
 
 # Setup:
@@ -28,7 +28,8 @@ To download and extract naoqi, follow this [guide](http://doc.aldebaran.com/2-5/
 
 - Create a Python Virtual Enviroment.
 ```
-python3 -m venv [name]
+python -m venv [name]
+(python2 is the alias for python2.7 in the main)
 ```
 - Access it running the "activate" script in the Bin folder.
 ```
