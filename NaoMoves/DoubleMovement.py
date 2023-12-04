@@ -4,15 +4,11 @@
 
 import sys
 
-import motion
-
-import almath
-
 import time
 
 from naoqi import ALProxy
 
-
+TO_RAD = 0.0174533
 
 #def StiffnessOn(proxy):
 #    # We use the "Body" name to signify the collection of all joints
@@ -98,9 +94,9 @@ def main(robotIP, port):
 
     names = "LArm"
 
-    angleLists = [ LShoulderPitch * almath.TO_RAD, LShoulderRoll * almath.TO_RAD, LElbowYaw * almath.TO_RAD,
+    angleLists = [ LShoulderPitch * TO_RAD, LShoulderRoll * TO_RAD, LElbowYaw * TO_RAD,
 
-                   LElbowRoll * almath.TO_RAD, LWristYaw * almath.TO_RAD, LHand ]
+                   LElbowRoll * TO_RAD, LWristYaw * TO_RAD, LHand ]
 
     timeLists = 2
 
@@ -110,9 +106,9 @@ def main(robotIP, port):
 
     names = "RArm"
 
-    angleLists = [ RShoulderPitch * almath.TO_RAD, RShoulderRoll * almath.TO_RAD, RElbowYaw * almath.TO_RAD,
+    angleLists = [ RShoulderPitch * TO_RAD, RShoulderRoll * TO_RAD, RElbowYaw * TO_RAD,
 
-                   RElbowRoll * almath.TO_RAD, RWristYaw * almath.TO_RAD, RHand ]
+                   RElbowRoll * TO_RAD, RWristYaw * TO_RAD, RHand ]
 
     timeLists = 2
 
@@ -162,9 +158,9 @@ def main(robotIP, port):
 
     names = "RArm"
 
-    angleLists = [ RShoulderPitch * almath.TO_RAD, RShoulderRoll * almath.TO_RAD, RElbowYaw * almath.TO_RAD,
+    angleLists = [ RShoulderPitch * TO_RAD, RShoulderRoll * TO_RAD, RElbowYaw * TO_RAD,
 
-                   RElbowRoll * almath.TO_RAD, RWristYaw * almath.TO_RAD, RHand * almath.TO_RAD ]
+                   RElbowRoll * TO_RAD, RWristYaw * TO_RAD, RHand * TO_RAD ]
 
     motionProxy.setAngles(names, angleLists, 0.05)
 
@@ -176,9 +172,9 @@ def main(robotIP, port):
 
     names = "LArm"
 
-    angleLists = [ LShoulderPitch * almath.TO_RAD, LShoulderRoll * almath.TO_RAD, LElbowYaw * almath.TO_RAD,
+    angleLists = [ LShoulderPitch * TO_RAD, LShoulderRoll * TO_RAD, LElbowYaw * TO_RAD,
 
-                   LElbowRoll * almath.TO_RAD, LWristYaw * almath.TO_RAD, LHand * almath.TO_RAD ]
+                   LElbowRoll * TO_RAD, LWristYaw * TO_RAD, LHand * TO_RAD ]
 
     motionProxy.setAngles(names, angleLists, 0.08)
 
@@ -218,9 +214,9 @@ def main(robotIP, port):
 
     names = "RArm"
 
-    angleLists = [ RShoulderPitch * almath.TO_RAD, RShoulderRoll * almath.TO_RAD, RElbowYaw * almath.TO_RAD,
+    angleLists = [ RShoulderPitch * TO_RAD, RShoulderRoll * TO_RAD, RElbowYaw * TO_RAD,
 
-                   RElbowRoll * almath.TO_RAD, RWristYaw * almath.TO_RAD, RHand * almath.TO_RAD ]
+                   RElbowRoll * TO_RAD, RWristYaw * TO_RAD, RHand * TO_RAD ]
 
     motionProxy.setAngles(names, angleLists, 0.15)
 
@@ -232,9 +228,9 @@ def main(robotIP, port):
 
     names = "LArm"
 
-    angleLists = [ LShoulderPitch * almath.TO_RAD, LShoulderRoll * almath.TO_RAD, LElbowYaw * almath.TO_RAD,
+    angleLists = [ LShoulderPitch * TO_RAD, LShoulderRoll * TO_RAD, LElbowYaw * TO_RAD,
 
-                   LElbowRoll * almath.TO_RAD, LWristYaw * almath.TO_RAD, LHand * almath.TO_RAD ]
+                   LElbowRoll * TO_RAD, LWristYaw * TO_RAD, LHand * TO_RAD ]
 
     motionProxy.setAngles(names, angleLists, 0.1)
 
@@ -276,9 +272,9 @@ def main(robotIP, port):
 
     names = "RArm"
 
-    angleLists = [ RShoulderPitch * almath.TO_RAD, RShoulderRoll * almath.TO_RAD, RElbowYaw * almath.TO_RAD,
+    angleLists = [ RShoulderPitch * TO_RAD, RShoulderRoll * TO_RAD, RElbowYaw * TO_RAD,
 
-                   RElbowRoll * almath.TO_RAD, RWristYaw * almath.TO_RAD, RHand * almath.TO_RAD ]
+                   RElbowRoll * TO_RAD, RWristYaw * TO_RAD, RHand * TO_RAD ]
 
     motionProxy.post.angleInterpolation(names, angleLists, 1.4, True)
 
@@ -290,9 +286,9 @@ def main(robotIP, port):
 
     names = "LArm"
 
-    angleLists = [ LShoulderPitch * almath.TO_RAD, LShoulderRoll * almath.TO_RAD, LElbowYaw * almath.TO_RAD,
+    angleLists = [ LShoulderPitch * TO_RAD, LShoulderRoll * TO_RAD, LElbowYaw * TO_RAD,
 
-                   LElbowRoll * almath.TO_RAD, LWristYaw * almath.TO_RAD, LHand * almath.TO_RAD ]
+                   LElbowRoll * TO_RAD, LWristYaw * TO_RAD, LHand * TO_RAD ]
 
     motionProxy.angleInterpolation(names, angleLists, 1.4, True)
 

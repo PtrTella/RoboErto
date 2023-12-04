@@ -1,17 +1,17 @@
-
 import numpy as np
-import time 
 import library as moves
 from collections import Counter
 
 #Global Variables and CONSTANTS
+INTENSITY_SEGMENT = 2
 BRANCHING_FACTOR = 5
 TIME_TOLERANCE = 20 #seconds
+SCORE_TO_EXIT = 0.8
 MAX_TREE_SIZE = 100
+MAX_EPOCH = 1000
 
 
 def moves_evaluation(node, analyzed_song, dur, song):
-    INTERVAL = 2
     round_time = 0
     value = 0
 
@@ -24,25 +24,25 @@ def moves_evaluation(node, analyzed_song, dur, song):
 
         # Valutazione in base alla mossa e all'intensità
         if move in moves.list_fast_moves:
-            if intensity > song['max'] - song['mean']/INTERVAL:
+            if intensity > song['max'] - song['mean']/INTENSITY_SEGMENT:
                 value += 1
-            elif song['min'] + song['mean']/INTERVAL <= intensity <= song['max'] - song['mean']/INTERVAL:
+            elif song['min'] + song['mean']/INTENSITY_SEGMENT <= intensity <= song['max'] - song['mean']/INTENSITY_SEGMENT:
                 value += 0.5
             else:
                 value += 0.2
 
         if move in moves.list_normal_moves:
-            if song['min'] + song['mean']/INTERVAL <= intensity <= song['max'] - song['mean']/INTERVAL:
+            if song['min'] + song['mean']/INTENSITY_SEGMENT <= intensity <= song['max'] - song['mean']/INTENSITY_SEGMENT:
                 value += 1
             else:
                 value += 0.5
             
         if move in moves.list_slow_moves:
-            if intensity < song['min'] + song['mean']/INTERVAL:
+            if intensity < song['min'] + song['mean']/INTENSITY_SEGMENT:
                 value += 1
-            elif song['min'] + song['mean']/INTERVAL <= intensity <= song['max'] - song['mean']/INTERVAL:
+            elif song['min'] + song['mean']/INTENSITY_SEGMENT <= intensity <= song['max'] - song['mean']/INTENSITY_SEGMENT:
                 value += 0.5
-            elif intensity > song['max'] - song['mean']/INTERVAL:
+            elif intensity > song['max'] - song['mean']/INTENSITY_SEGMENT:
                 value += 0.2
         
         return value/len(node)
@@ -79,11 +79,11 @@ def heuristic(node, analyzed_song, dur, song):
 #It expands nodes based on an Heuristic h
 #h: linear combination between the normalized duration of a Solution and the normalized number of matching position included
 def search(analyzed_song, dur):
-    EPOCH = 1000
+    
     epoch = 0
     song = { 'max': np.max(analyzed_song), 'min': np.min(analyzed_song), 'mean': np.mean(analyzed_song)}
 
-    while epoch < EPOCH:
+    while epoch < MAX_EPOCH:
         iteration = 0
         np.random.shuffle(moves.intermediate)
         np.random.shuffle(moves.mandatory)
@@ -100,7 +100,7 @@ def search(analyzed_song, dur):
             if t_best > dur + TIME_TOLERANCE:
                 break
         
-            if t_best > (dur)  and t_best < (dur + TIME_TOLERANCE) and h_best > 0.8:
+            if t_best > (dur)  and t_best < (dur + TIME_TOLERANCE) and h_best > SCORE_TO_EXIT:
                 return best, t_best, h_best, iteration, epoch
             
             iteration += 1

@@ -1,6 +1,5 @@
 import sys
 import time
-import numpy as np
 from naoqi import ALProxy
 
 

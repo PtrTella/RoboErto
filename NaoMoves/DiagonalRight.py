@@ -1,7 +1,6 @@
 import sys
 import time
 
-import almath
 from naoqi import ALProxy
 
 
@@ -39,10 +38,7 @@ def main(robotIP, port):
     distance_x_m=0.03
     distance_y_m=-0.012
     theta_deg=0.0
-    # The command position estimation will be set to the sensor position when the robot starts moving, so we use sensors first and commands later.
-    initPosition = almath.Pose2D(motionProxy.getRobotPosition(True))
-    targetDistance = almath.Pose2D(distance_x_m, distance_y_m, theta_deg * almath.PI / 180)
-    expectedEndPosition = initPosition * targetDistance
+    
     enableArms = 0
     motionProxy.setMoveArmsEnabled(enableArms, enableArms)
     motionProxy.moveTo(distance_x_m, distance_y_m,theta_deg)

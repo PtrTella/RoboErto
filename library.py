@@ -1,4 +1,3 @@
-
 #Move Wrapper Class
 class NaoMove:
     def __init__(self, name, duration=None, preconditions=None, postconditions=None):
@@ -8,6 +7,9 @@ class NaoMove:
         self.postconditions = postconditions  
 
 #Moves
+initial =   NaoMove('I_StandInit', 1.60, None, None)
+goal    =   NaoMove('F_Crouch', 1.32, None, None)
+
 intermediate = [    NaoMove('StandUp', 8.35,  {'standing': False}, {'standing': True}),
                     NaoMove('AirGuitar', 4.10,   {'standing': True},  {'standing': True}),
                     NaoMove('ArmDance', 10.42, {'standing': True},  {'standing': True}),
@@ -26,7 +28,7 @@ intermediate = [    NaoMove('StandUp', 8.35,  {'standing': False}, {'standing': 
                     NaoMove('Glory', 3.28,  None, None),
                     NaoMove('Clap', 4.10,  None, None),
                     NaoMove('Joy', 4.50,  None, None),
-                    NaoMove('DoubleM ovement', 10.6, None,  None),
+                    NaoMove('DoubleMovement', 10.6, None,  None),
                     NaoMove('CowboyMove', 22.10, {'standing': True},  {'standing': True}),
                     NaoMove('Macarena', 2.95, {'standing': True},  {'standing': True})]
 
@@ -40,7 +42,3 @@ mandatory = [   NaoMove('M_WipeForehead', 4.48, None , None),
 list_fast_moves = ['I_StandInit', 'M_StandZero', 'M_Stand', 'Rhythm', 'DiagonalRight', 'F_Crouch', 'Macarena']
 list_normal_moves = ['ComeOn','Wave','Glory', 'M_SitRelax', 'M_Hello', 'M_WipeForehead','AirGuitar', 'BlowKisses', 'Bow', 'SprinklerL', 'SprinklerR', 'Clap', 'Joy' ]
 list_slow_moves = ['ArmDance','StandUp', 'DanceMove', 'TheRobot','StayingAlive', 'PulpFiction', 'M_Sit', 'DoubleMovement', 'CowboyMove' ]
-
-#Compulsory Moves
-initial = NaoMove('I_StandInit', 1.60, None, None)
-goal = NaoMove('F_Crouch', 1.32, None, None)

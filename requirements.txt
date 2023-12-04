@@ -1,5 +1,2 @@
-treelib
 numpy
-pydub
 scipy
-playsound
