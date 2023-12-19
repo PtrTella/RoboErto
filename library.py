@@ -33,7 +33,7 @@ intermediate = [    NaoMove('StandUp', 8.35,  {'standing': False}, {'standing': 
                     NaoMove('Macarena', 2.95, {'standing': True},  {'standing': True})]
 
 mandatory = [   NaoMove('M_WipeForehead', 4.48, None , None),
-                NaoMove('M_Stand', 2.32, None, {'standing': True} ),
+                NaoMove('M_Stand', 2.32, {'standing': True}, {'standing': True} ),
                 NaoMove('M_Hello', 4.34, None, None),
                 NaoMove('M_Sit', 9.84, None,  {'standing': False}),
                 NaoMove('M_SitRelax', 3.92, None,  {'standing': False}),
